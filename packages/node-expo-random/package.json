@@ -39,6 +39,9 @@
     "typescript": "^4.1.3"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "./jest-setup.js"
+    ]
   }
 }
