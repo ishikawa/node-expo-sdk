@@ -1,8 +1,7 @@
 {
   "name": "node-expo-random",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The node implementation for expo-random",
-  "main": "index.js",
   "author": "Takanori Ishikawa <ishikawa_takanori@mac.com> (https://github.com/ishikawa/)",
   "license": "MIT",
   "repository": {
@@ -17,11 +16,20 @@
     "url": "https://github.com/ishikawa/node-expo-sdk/issues"
   },
   "homepage": "https://github.com/ishikawa/node-expo-sdk#readme",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist/index.js",
+    "./dist/index.d.ts",
+    "./jest-setup.js"
+  ],
   "scripts": {
     "check": "yarn run type && yarn run lint && yarn run test",
     "type": "tsc --noEmit",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepublishOnly": "yarn run build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

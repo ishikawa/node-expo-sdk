@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 
 export function getRandomBytes(byteCount: number): Uint8Array {
   const buffer = crypto.randomBytes(byteCount);

@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "lib": ["esnext"],
-    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "commonjs",
+    "declaration": true,
     "noEmit": true,
+    "outDir": "dist",
+    "pretty": true,
+    "moduleResolution": "node",
     "skipLibCheck": true,
     "resolveJsonModule": false,
     "strict": true
