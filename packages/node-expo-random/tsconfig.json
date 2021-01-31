@@ -1,11 +1,3 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "lib": ["esnext"],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": false,
-    "strict": true
-  }
+  "extends": "../../tsconfig.json"
 }
