@@ -19,16 +19,15 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "./dist/index.js",
-    "./dist/index.d.ts",
-    "./jest-setup.js"
+    "./dist"
   ],
   "scripts": {
     "check": "yarn run type && yarn run lint && yarn run test",
     "type": "tsc --noEmit",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "pretest": "yarn run build",
     "test": "jest",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "prepublishOnly": "yarn run build"
   },
   "devDependencies": {
