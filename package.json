@@ -1,0 +1,29 @@
+{
+  "name": "node-expo-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "private": true,
+  "workspaces": [
+    "./packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishikawa/node-expo-sdk.git"
+  },
+  "keywords": [
+    "reactnative",
+    "expo",
+    "test",
+    "jest"
+  ],
+  "author": "Takanori Ishikawa <ishikawa_takanori@mac.com> (https://github.com/ishikawa/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ishikawa/node-expo-sdk/issues"
+  },
+  "homepage": "https://github.com/ishikawa/node-expo-sdk#readme"
+}
