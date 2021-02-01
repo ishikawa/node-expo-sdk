@@ -1,6 +1,6 @@
 {
   "name": "node-expo-crypto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The node implementation for expo-crypto",
   "author": "Takanori Ishikawa <ishikawa_takanori@mac.com> (https://github.com/ishikawa/)",
   "license": "MIT",
