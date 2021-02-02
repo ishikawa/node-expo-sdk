@@ -1,14 +1,16 @@
-// This file intended to be specified in `setupFilesAfterEnv` in Jest configuration.
-//
-//   setupFilesAfterEnv: [
-//    'node-expo-crypto/jest-setup.js',
-//   ]
-//
-// FIXME: This file does not work as expected. Even though I specified the file in
-// the configuration, the test did not pass. 🤨
+/*
+ * This file is intended to be specified in `setupFilesAfterEnv` in Jest configuration.
+ *
+ *   setupFilesAfterEnv: [
+ *    'node-expo-crypto/jest-setup.js',
+ *   ]
+ *
+ * See the Jest documentation at https://jestjs.io/docs/en/configuration#setupfilesafterenv-array for
+ * more details.
+ */
 jest.mock('expo-crypto/build/ExpoCrypto', () => ({
   digestStringAsync: jest.fn((algorithm, data, options) => {
-    const crypto = require('./index');
+    const crypto = require('./dist/index');
     return crypto.digestStringAsync(algorithm, data, options);
   })
 }));

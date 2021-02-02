@@ -1,18 +1,20 @@
-// This file intended to be specified in `setupFilesAfterEnv` in Jest configuration.
-//
-//   setupFilesAfterEnv: [
-//    'node-expo-random/jest-setup.js',
-//   ]
-//
-// FIXME: This file does not work as expected. Even though I specified the file in
-// the configuration, the test did not pass. 🤨
+/*
+ * This file is intended to be specified in `setupFilesAfterEnv` in Jest configuration.
+ *
+ *   setupFilesAfterEnv: [
+ *    'node-expo-random/jest-setup.js',
+ *   ]
+ *
+ * See the Jest documentation at https://jestjs.io/docs/en/configuration#setupfilesafterenv-array for
+ * more details.
+ */
 jest.mock('expo-random/build/ExpoRandom', () => ({
   getRandomBytes: jest.fn(byteCount => {
-    const random = require('node-expo-random');
+    const random = require('./dist/index');
     return random.getRandomBytes(byteCount);
   }),
   getRandomBytesAsync: jest.fn(byteCount => {
-    const random = require('node-expo-random');
+    const random = require('./dist/index');
     return random.getRandomBytesAsync(byteCount);
   })
 }));
