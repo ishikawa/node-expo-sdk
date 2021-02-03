@@ -1,6 +1,15 @@
 # node-expo-random
 
-The Node.js implementation for [expo-random](https://docs.expo.io/versions/latest/sdk/random/).
+The package `node-expo-random` provides the same interface of [`expo-random`](https://docs.expo.io/versions/latest/sdk/random/). So Thus, you can implement mocks that work as expected even in the Node environment.
+
+```js
+var random = require('node-expo-random');
+
+var bytes = random.getRandomBytes(8);
+console.log(bytes);
+```
+
+This library also contains default mocks for Jest. For details on how to configure, see below.
 
 ## Install
 
@@ -10,21 +19,6 @@ $ npm install --save-dev node-expo-random
 
 ## Jest configuration
 
-Create a setup file.
-
-```js
-jest.mock('expo-random/build/ExpoRandom', () => ({
-  getRandomBytes: jest.fn(byteCount => {
-    const random = require('node-expo-random');
-    return random.getRandomBytes(byteCount);
-  }),
-  getRandomBytesAsync: jest.fn(byteCount => {
-    const random = require('node-expo-random');
-    return random.getRandomBytesAsync(byteCount);
-  })
-}));
-```
-
 In your Jest configuration.
 
 ```json
@@ -32,7 +26,7 @@ In your Jest configuration.
   ...
   "json": {
     "setupFilesAfterEnv": [
-      "./test/setup/node-expo-random.js"
+      "node-expo-random/jest-setup.js"
     ]
   }
 }

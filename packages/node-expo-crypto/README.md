@@ -1,6 +1,17 @@
 # node-expo-crypto
 
-The Node.js implementation for [expo-crypto](https://docs.expo.io/versions/latest/sdk/crypto/).
+The package `node-expo-crypto` provides the same interface of [`expo-crypto`](https://docs.expo.io/versions/latest/sdk/crypto/). So Thus, you can implement mocks that work as expected even in the Node environment.
+
+```js
+var crypto = require('node-expo-crypto');
+
+var data = 'hello';
+var digest = crypto.digestStringAsync('sha256', data);
+
+console.log(digest);
+```
+
+This library also contains default mocks for Jest. For details on how to configure, see below.
 
 ## Install
 
@@ -10,17 +21,6 @@ $ npm install --save-dev node-expo-crypto
 
 ## Jest configuration
 
-Create a setup file.
-
-```js
-jest.mock('expo-crypto/build/ExpoCrypto', () => ({
-  digestStringAsync: jest.fn((algorithm, data, options) => {
-    const crypto = require('node-expo-crypto');
-    return crypto.digestStringAsync(algorithm, data, options);
-  })
-}));
-```
-
 In your Jest configuration.
 
 ```json
@@ -28,7 +28,7 @@ In your Jest configuration.
   ...
   "json": {
     "setupFilesAfterEnv": [
-      "./test/setup/node-expo-crypto.js"
+      "node-expo-crypto/jest-setup.js"
     ]
   }
 }
