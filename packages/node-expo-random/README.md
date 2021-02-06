@@ -6,10 +6,10 @@ The package `node-expo-random` provides the same interface of [`expo-random`](ht
 var random = require('node-expo-random');
 
 var bytes = random.getRandomBytes(8);
-console.log(bytes);
+console.log(bytes); // Uint8Array(8) [5, 169, 234, 152, 41, 248, 121, 197]
 ```
 
-This library also contains default mocks for Jest. For details on how to configure, see below.
+This package also contains default mocks for [Jest](https://jestjs.io/) testing framework. For details on how to configure, see below.
 
 ## Install
 
