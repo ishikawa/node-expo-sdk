@@ -1,6 +1,6 @@
 {
   "name": "node-expo-random",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The node implementation for expo-random",
   "author": "Takanori Ishikawa <ishikawa_takanori@mac.com> (https://github.com/ishikawa/)",
   "license": "MIT",
