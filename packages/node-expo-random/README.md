@@ -2,10 +2,10 @@
 
 The package `node-expo-random` provides the same interface of [`expo-random`](https://docs.expo.io/versions/latest/sdk/random/). So Thus, you can implement mocks that work as expected even in the Node environment.
 
-```js
-var random = require('node-expo-random');
+```typescript
+const random = require('node-expo-random');
 
-var bytes = random.getRandomBytes(8);
+const bytes = random.getRandomBytes(8);
 console.log(bytes); // Uint8Array(8) [5, 169, 234, 152, 41, 248, 121, 197]
 ```
 
