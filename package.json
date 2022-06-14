@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/ishikawa/node-expo-sdk/issues"
   },
-  "homepage": "https://github.com/ishikawa/node-expo-sdk#readme"
+  "homepage": "https://github.com/ishikawa/node-expo-sdk#readme",
+  "resolutions": {}
 }
