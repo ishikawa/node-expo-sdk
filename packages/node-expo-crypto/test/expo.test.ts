@@ -1,17 +1,13 @@
-import { digestStringAsync } from 'node-expo-crypto';
+import { digestStringAsync, getRandomBytes } from 'node-expo-crypto';
 import { CryptoDigestAlgorithm, CryptoEncoding } from 'expo-crypto';
 
 const INPUT = 'hi';
 
 describe('digestStringAsync', () => {
   // NOTE: 'md2' not supported
+  // NOTE: 'md4' not supported
 
   [
-    {
-      algorithm: CryptoDigestAlgorithm.MD4,
-      hex: 'cfaee2512bd25eb033236f0cd054e308',
-      base64: 'z67iUSvSXrAzI28M0FTjCA=='
-    },
     {
       algorithm: CryptoDigestAlgorithm.MD5,
       hex: '49f68a5c8493ec2c0bf489821c21fc3b',
@@ -34,8 +30,7 @@ describe('digestStringAsync', () => {
     },
     {
       algorithm: CryptoDigestAlgorithm.SHA512,
-      hex:
-        '150a14ed5bea6cc731cf86c41566ac427a8db48ef1b9fd626664b3bfbb99071fa4c922f33dde38719b8c8354e2b7ab9d77e0e67fc12843920a712e73d558e197',
+      hex: '150a14ed5bea6cc731cf86c41566ac427a8db48ef1b9fd626664b3bfbb99071fa4c922f33dde38719b8c8354e2b7ab9d77e0e67fc12843920a712e73d558e197',
       base64: 'FQoU7VvqbMcxz4bEFWasQnqNtI7xuf1iZmSzv7uZBx+kySLzPd44cZuMg1Tit6udd+Dmf8EoQ5IKcS5z1Vjhlw=='
     }
   ].forEach(({ algorithm, hex, base64 }) => {
@@ -51,5 +46,16 @@ describe('digestStringAsync', () => {
       const digest = await digestStringAsync(algorithm, INPUT, { encoding: CryptoEncoding.BASE64 });
       expect(digest).toEqual(base64);
     });
+  });
+});
+
+describe('getRandomBytes', () => {
+  test('get random bytes', async () => {
+    const bytes = getRandomBytes(8);
+    expect(bytes).toHaveLength(8);
+  });
+
+  test('returns unique values', async () => {
+    expect(getRandomBytes(8)).not.toEqual(getRandomBytes(8));
   });
 });
