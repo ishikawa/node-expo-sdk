@@ -1,4 +1,4 @@
-import { digestStringAsync, CryptoDigestAlgorithm, CryptoEncoding } from 'expo-crypto';
+import { digestStringAsync, CryptoDigestAlgorithm, CryptoEncoding, getRandomBytes } from 'expo-crypto';
 
 const INPUT = 'hi';
 
@@ -45,5 +45,16 @@ describe('digestStringAsync', () => {
       const digest = await digestStringAsync(algorithm, INPUT, { encoding: CryptoEncoding.BASE64 });
       expect(digest).toEqual(base64);
     });
+  });
+});
+
+describe('getRandomBytes', () => {
+  test('get random bytes', async () => {
+    const bytes = getRandomBytes(8);
+    expect(bytes).toHaveLength(8);
+  });
+
+  test('returns unique values', async () => {
+    expect(getRandomBytes(8)).not.toEqual(getRandomBytes(8));
   });
 });
