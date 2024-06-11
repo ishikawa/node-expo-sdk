@@ -1,3 +1,9 @@
+## 1.3.0
+
+- Expo SDK 51
+- Add `Crypto.getRandomValues()`
+- Add `Crypto.randomUUID()`
+
 ## 1.1.2
 
 - Upgrade dependencies.
