@@ -1,7 +1,7 @@
-## 1.1.3
+## 1.3.0
 
 - Expo SDK 51
-- Add `Crypto.getRandomValues`
+- Add `Crypto.getRandomValues()`
 
 ## 1.1.2
 
