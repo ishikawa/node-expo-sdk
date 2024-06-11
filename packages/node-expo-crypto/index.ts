@@ -51,3 +51,7 @@ export function getRandomValues(typedArray: TypedArray): TypedArray {
   typedArray.set(view);
   return typedArray;
 }
+
+export function randomUUID(): string {
+  return crypto.randomUUID();
+}

@@ -1,4 +1,11 @@
-import { digestStringAsync, CryptoDigestAlgorithm, CryptoEncoding, getRandomBytes, getRandomValues } from 'expo-crypto';
+import {
+  digestStringAsync,
+  CryptoDigestAlgorithm,
+  CryptoEncoding,
+  getRandomBytes,
+  getRandomValues,
+  randomUUID
+} from 'expo-crypto';
 
 const INPUT = 'hi';
 
@@ -74,5 +81,16 @@ describe('getRandomValues', () => {
     getRandomValues(typedArray2);
 
     expect(typedArray1).not.toEqual(getRandomValues(typedArray2));
+  });
+});
+
+describe('randomUUID', () => {
+  test('get random UUID', async () => {
+    const uuid = randomUUID();
+    expect(uuid).toHaveLength(36);
+  });
+
+  test('returns unique values', async () => {
+    expect(randomUUID()).not.toEqual(randomUUID());
   });
 });
