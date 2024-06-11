@@ -1,3 +1,8 @@
+## 1.1.3
+
+- Expo SDK 51
+- Add `Crypto.getRandomValues`
+
 ## 1.1.2
 
 - Upgrade dependencies.
