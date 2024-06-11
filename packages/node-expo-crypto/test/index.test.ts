@@ -1,4 +1,4 @@
-import { digestStringAsync, CryptoDigestAlgorithm, CryptoEncoding, getRandomBytes } from 'expo-crypto';
+import { digestStringAsync, CryptoDigestAlgorithm, CryptoEncoding, getRandomBytes, getRandomValues } from 'expo-crypto';
 
 const INPUT = 'hi';
 
@@ -56,5 +56,23 @@ describe('getRandomBytes', () => {
 
   test('returns unique values', async () => {
     expect(getRandomBytes(8)).not.toEqual(getRandomBytes(8));
+  });
+});
+
+describe('getRandomValues', () => {
+  test('get random values', async () => {
+    const typedArray = new Uint8Array(8);
+    const values = getRandomValues(typedArray);
+    expect(values).toHaveLength(8);
+  });
+
+  test('returns unique values', async () => {
+    const typedArray1 = new Uint8Array(8);
+    const typedArray2 = new Uint8Array(8);
+
+    getRandomValues(typedArray1);
+    getRandomValues(typedArray2);
+
+    expect(typedArray1).not.toEqual(getRandomValues(typedArray2));
   });
 });
